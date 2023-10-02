@@ -1,7 +1,7 @@
-digitaltools
+US inflation hedges
 ==============================
 
-placeholder pending team discussion
+What domestic assets are most useful to US individual investors to hedge against inflation?
 
 Project Organization
 ------------
