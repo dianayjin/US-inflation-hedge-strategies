@@ -10,4 +10,4 @@ flake8
 python-dotenv>=0.5.1
 yfinance
 requests
-dotenv
+nasdaq-data-link
