@@ -3,6 +3,32 @@ US inflation hedges
 
 What domestic assets are most useful to US individual investors to hedge against inflation?
 
+## Data Sources
+- Equities: Yahoo Finance
+- Gold: London Bullion Market via Nasdaq
+- CPI Data: US Bureau of Labor Statistics
+
+## Setup Instructions
+1. **Environment Setup**:
+   - Create a virtual environment: `python -m venv venv_name`
+   - Activate the virtual environment:
+     - On Windows: `venv_name\Scripts\activate`
+     - On Linux/Mac: `source venv_name/bin/activate`
+   - Install required libraries: `pip install -r requirements.txt`
+
+2. **API Keys**:
+   Most data sources require API keys. Store these keys securely using environment variables. We use the `dotenv` approach for this.
+   - Rename `.env.example` to `.env`.
+   - Fill in the required API keys or configurations.
+   - The application will load these keys automatically.
+
+3. **Fetching Data**:
+   - To populate the raw data folder, run the script [in notebooks].
+   - To output processed data, run the script [].
+
+4. **Analysis**:
+   Instructions on how to run your analysis, scripts, or notebooks.
+ 
 Project Organization
 ------------
 
