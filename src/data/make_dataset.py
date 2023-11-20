@@ -23,8 +23,9 @@ def main():
                 cont = input("Continue? (y/n): ")
 
                 if cont.lower() == "y":
+                    process.get_monthly_prices(ASSET_DATA_DIR, INT_DATA_DIR)
                     process.calculate_inflation_rates(CPI_DATA_DIR, POST_DATA_DIR)
-                    process.process_asset_files(ASSET_DATA_DIR, POST_DATA_DIR)
+                    process.process_asset_files(INT_DATA_DIR, POST_DATA_DIR)
                     print(f"Data processing has finished, please check processed data files in {POST_DATA_DIR} ")
                 
                 else:
@@ -36,9 +37,11 @@ if __name__ == '__main__':
     # define data directories
     BASE_DATA_DIR = PROJECT_DIR / "data"  
     RAW_DATA_DIR = BASE_DATA_DIR / "raw"
+    INT_DATA_DIR = BASE_DATA_DIR / "interim"
     POST_DATA_DIR = BASE_DATA_DIR / "processed"
 
     RAW_DATA_DIR.mkdir(parents=True, exist_ok=True)
+    INT_DATA_DIR.mkdir(parents=True, exist_ok=True)
     POST_DATA_DIR.mkdir(parents=True, exist_ok=True)
 
     ASSET_DATA_DIR = RAW_DATA_DIR / "assets"

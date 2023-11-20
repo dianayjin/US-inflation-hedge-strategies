@@ -35,13 +35,10 @@ def fetch_gold_data(start_date, end_date, ASSET_DATA_DIR):
     try:
         gold_data = ndl.get("LBMA/GOLD", start_date=start_date, end_date=end_date)
 
-        # resample to get end-of-month prices
-        eom_prices = gold_data['USD (PM)'].resample('M').last()
-
         file_path = Path(ASSET_DATA_DIR) / f"gold_{start_date}_to_{end_date}.csv"
-        eom_prices.to_csv(file_path)
+        gold_data.to_csv(file_path)
 
-        print(f"End of month afternoon gold prices were downloaded successfully to {file_path}\n")
+        print(f"Gold prices were downloaded successfully to {file_path}\n")
 
         return True
     
@@ -80,13 +77,9 @@ def fetch_equity_data(tickers, start_date, end_date, ASSET_DATA_DIR):
                 continue
 
             file_path = ASSET_DATA_DIR / f"{ticker}_{start_date}_to_{end_date}.csv"
+            data.to_csv(file_path)
             
-            # resample to get end-of-month prices
-            monthly_data = data['Adj Close'].resample('M').last()
-            monthly_data.dropna(inplace=True)
-
-            monthly_data.to_csv(file_path)
-            print(f"Monthly returns for {ticker} saved to {file_path}")
+            print(f"Prices for {ticker} saved to {file_path}")
 
         except Exception as e:
             print(f"An error occurred: {e}")
@@ -98,7 +91,7 @@ def fetch_equity_data(tickers, start_date, end_date, ASSET_DATA_DIR):
 
         return False
     else:
-        print(f"End of month prices for all equities downloaded successfully to {ASSET_DATA_DIR}\n")
+        print(f"Prices for all equities downloaded successfully to {ASSET_DATA_DIR}\n")
 
         return True
 
