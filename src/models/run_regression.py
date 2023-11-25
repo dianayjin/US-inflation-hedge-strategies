@@ -16,8 +16,8 @@ def main():
     results = []
     for asset_name, asset_data in merged_data.items():
         try:
-            output_file = rmodel.run_regression(asset_name, asset_data, MODEL_DIR)
-            results.append(output_file)
+            output = rmodel.run_regression(asset_name, asset_data)
+            results.append(output)
         except:
             print(f"Unable to run regression for: {asset_name}\n")
     results_df = pd.DataFrame(results)
@@ -30,8 +30,11 @@ def main():
     # perform robustness checks for each asset
     robustness_results = []
     for asset_name, asset_data in merged_data.items():
-        results = rmodel.robustness_checks(asset_name, asset_data)
-        robustness_results.append(results)
+        try:
+            output = rmodel.robustness_checks(asset_name, asset_data)
+            robustness_results.append(output)
+        except:
+            print(f"Unable to run robustness check for: {asset_name}\n")
     robustness_results_df = pd.DataFrame(robustness_results)
 
     # file path for the output CSV file

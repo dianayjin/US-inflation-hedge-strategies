@@ -18,7 +18,7 @@ def load_merged_data(DATA_DIR):
     
     return merged_data
 
-def run_regression(asset_name, asset_data, output_directory):
+def run_regression(asset_name, asset_data):
     # prepare the data for regression
     X = asset_data[['Inflation Rates']].values.reshape(-1, 1)
     y = asset_data['Log Returns'].values
