@@ -75,7 +75,7 @@ def calculate_inflation_rates(CPI_DATA_DIR, POST_DATA_DIR):
             # preprocess data to list values in ascending chronological order
             data = data.iloc[::-1]
 
-            data['value'] = 100 * np.log(data['value'] / data['value'].shift(1))
+            data['Inflation Rates'] = np.log(data['value'] / data['value'].shift(1))
 
             output_file = file_path.stem + '_inflation_rates.csv'
             data.to_csv(Path(POST_DATA_DIR) / output_file)
@@ -104,13 +104,14 @@ def calculate_log_returns(file_path):
     """
     # load data
     data = pd.read_csv(file_path, parse_dates=['Date'], index_col='Date')
+    log_returns = pd.read_csv(file_path, parse_dates=['Date'], index_col='Date')
 
     # calculate log returns
     try:
-        log_returns = 100 * np.log(data['Adj Close'] / data['Adj Close'].shift(1))
+        log_returns['Log Returns'] = np.log(data['Adj Close'] / data['Adj Close'].shift(1))
 
     except:
-        log_returns = 100 * np.log(data['USD (PM)'] / data['USD (PM)'].shift(1))
+        log_returns['Log Returns'] = np.log(data['USD (PM)'] / data['USD (PM)'].shift(1))
 
     return log_returns.dropna()
 

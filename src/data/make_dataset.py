@@ -49,6 +49,5 @@ if __name__ == '__main__':
 
     CPI_DATA_DIR.mkdir(parents=True, exist_ok=True)
     ASSET_DATA_DIR.mkdir(parents=True, exist_ok=True)
-
+    
     main()
-

@@ -8,6 +8,11 @@ coverage
 awscli
 flake8
 python-dotenv>=0.5.1
-yfinance
-requests
-nasdaq-data-link
+yfinance>=0.1.63
+requests>=2.25
+nasdaq-data-link>=1.0.0
+scikit-learn>=0.24
+matplotlib>=3.2
+seaborn>=0.11
+pandas>=1.1
+numpy>=1.19
