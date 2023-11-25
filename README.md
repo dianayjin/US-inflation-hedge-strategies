@@ -49,12 +49,12 @@ Our analysis aims to calculate the β coefficient for various asset classes to e
    - The application will load these keys automatically.
 
 3. **Fetching Data**:
-   - To populate the raw data folder, run the script [in notebooks].
-   - To output processed data, run the script [].
+   - To populate the raw data folder, run the script [load_data].
+   - To output processed data, run the script [make_dataset].
 
 4. **Analysis**:
-   - To run the regression model on all asset classes and perform robustness checks, run the script [].
-   - To output visualizations, run the script []. 
+   - To run the regression model on all asset classes and perform robustness checks, run the script [run_regression].
+   - To output visualizations, run the script [visualize].
    
  
 Project Organization
