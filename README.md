@@ -1,7 +1,29 @@
-US inflation hedges
+US inflation hedges: What domestic assets are most useful to US individual investors to hedge against inflation?
 ==============================
+Inflation Hedging Analysis Based on the Fisher Hypothesis
 
-What domestic assets are most useful to US individual investors to hedge against inflation?
+- Overview
+This analysis is grounded in the Fisher Hypothesis, initially proposed by Fisher in 1930, which establishes a theoretical framework for understanding the relationship between asset returns and inflation. This hypothesis suggests that nominal interest rates are a combination of real returns and the inflation rate. Extending this idea, Fama and Schwert (1977) and later Arnold and Auer (2015) argue that expected nominal returns across various assets are indicative of market expectations about inflation rates.
+
+- Methodology
+Our approach involves applying the generalized Fisher hypothesis to examine the inflation hedging capabilities of different asset classes. The formula used is as follows:
+
+r_t = α + β * π_t + ε_t;   ε_t ~ N(0, σ_E²)
+where,
+   - r_t is the asset return, calculated as the first difference of the natural log of the asset's price.
+   - π_t is the inflation rate, computed as the logarithm of the ratio of the current and previous Consumer Price Index (CPI) values.
+   - β represents the asset's potential to hedge against inflation:
+      - Partial Hedge: 0 < β < 1;
+      - Full Hedge: β = 1;
+      - Superior Performance: β > 1;
+      - No Inflation Hedging Potential: β ≤ 0.
+
+To ensure the reliability and validity of our inflation hedging analysis, we implemented robustness checks. These checks are designed to test the stability and consistency of our results under various conditions and assumptions.
+   - Cross-Validation: We used k-fold cross-validation to evaluate the performance of our regression model across different subsets of the data. This helps in assessing the model's ability to generalize and its performance consistency. The model's R² (coefficient of determination) scores across different folds were analyzed to gauge the variability in its predictive accuracy. Significant variability in these scores might indicate model overfitting or the presence of influential outliers.
+   - Robust Regression Techniques:To mitigate the influence of outliers or unusual data points, we employed robust regression methods like Huber regression. These methods are less sensitive to outliers and provide coefficients that can be more representative of the underlying data trends. By comparing the coefficients from standard linear regression with those from robust regression, we can evaluate the impact of outliers on our findings. A substantial discrepancy between the beta coefficients from standard and robust regressions could suggest that the our model's findings are sensitive to outliers.
+   
+- Objective
+Our analysis aims to calculate the β coefficient for various asset classes to evaluate their performance as inflation hedges. This involves regression analysis where the asset returns are regressed against inflation rates to understand the extent of their correlation and to quantify the hedging capability of each asset class
 
 ## Data Sources
 - Equities: Yahoo Finance
@@ -17,7 +39,7 @@ What domestic assets are most useful to US individual investors to hedge against
    - Install required libraries: `pip install -r requirements.txt`
 
 2. **API Keys**:
-   Most data sources require API keys. Store these keys securely using environment variables. We use the `dotenv` approach for this.
+   Most data sources require API keys. Store these keys securely using environment variables. We use the `dotenv` approach for this. Please go to https://data.nasdaq.com/sign-up and https://data.bls.gov/registrationEngine/ to register for access to both APIs.
    - Rename `.env.example` to `.env`.
    - Fill in the required API keys or configurations.
    - The application will load these keys automatically.
@@ -27,7 +49,9 @@ What domestic assets are most useful to US individual investors to hedge against
    - To output processed data, run the script [].
 
 4. **Analysis**:
-   Instructions on how to run your analysis, scripts, or notebooks.
+   - To run the regression model on all asset classes and perform robustness checks, run the script [].
+   - To output visualizations, run the script []. 
+   
  
 Project Organization
 ------------
