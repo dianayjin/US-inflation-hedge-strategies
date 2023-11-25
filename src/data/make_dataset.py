@@ -5,10 +5,29 @@ import user_input as ui
 import load_data as load
 import process_data as process
 
+
 def main():
     """ 
     Runs data loading and processing scripts to turn raw data from (../raw) into cleaned data ready to be analyzed (saved in ../processed).
     """
+    PROJECT_DIR= Path(__file__).resolve().parents[2]
+
+    # define data directories
+    BASE_DATA_DIR = PROJECT_DIR / "data"  
+    RAW_DATA_DIR = BASE_DATA_DIR / "raw"
+    INT_DATA_DIR = BASE_DATA_DIR / "interim"
+    POST_DATA_DIR = BASE_DATA_DIR / "processed"
+
+    RAW_DATA_DIR.mkdir(parents=True, exist_ok=True)
+    INT_DATA_DIR.mkdir(parents=True, exist_ok=True)
+    POST_DATA_DIR.mkdir(parents=True, exist_ok=True)
+
+    ASSET_DATA_DIR = RAW_DATA_DIR / "assets"
+    CPI_DATA_DIR = RAW_DATA_DIR / "cpi"
+
+    CPI_DATA_DIR.mkdir(parents=True, exist_ok=True)
+    ASSET_DATA_DIR.mkdir(parents=True, exist_ok=True)
+
     start_date = ui.input_start()
     if start_date != False:
         end_date = ui.input_end(start_date)
@@ -31,23 +50,6 @@ def main():
                 else:
                     print("Exiting the program.")
 
+
 if __name__ == '__main__':
-    PROJECT_DIR = Path(__file__).resolve().parents[2]
-
-    # define data directories
-    BASE_DATA_DIR = PROJECT_DIR / "data"  
-    RAW_DATA_DIR = BASE_DATA_DIR / "raw"
-    INT_DATA_DIR = BASE_DATA_DIR / "interim"
-    POST_DATA_DIR = BASE_DATA_DIR / "processed"
-
-    RAW_DATA_DIR.mkdir(parents=True, exist_ok=True)
-    INT_DATA_DIR.mkdir(parents=True, exist_ok=True)
-    POST_DATA_DIR.mkdir(parents=True, exist_ok=True)
-
-    ASSET_DATA_DIR = RAW_DATA_DIR / "assets"
-    CPI_DATA_DIR = RAW_DATA_DIR / "cpi"
-
-    CPI_DATA_DIR.mkdir(parents=True, exist_ok=True)
-    ASSET_DATA_DIR.mkdir(parents=True, exist_ok=True)
-    
     main()

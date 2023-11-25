@@ -9,6 +9,9 @@ import seaborn as sns
 
 from sklearn.linear_model import LinearRegression
 
+PROJECT_DIR = Path(__file__).resolve().parents[2]
+MODEL_DIR = PROJECT_DIR / "models"
+
 def plot_regression_results(file_path):
     # load data from CSV file
     asset_data = pd.read_csv(file_path)
@@ -75,6 +78,5 @@ def main():
     run_visualization(MODEL_DIR)
 
 if __name__ == '__main__':
-    PROJECT_DIR = Path(__file__).resolve().parents[2]
-    MODEL_DIR = PROJECT_DIR / "models"
+    
     main()

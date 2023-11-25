@@ -5,6 +5,12 @@ from pathlib import Path
 
 import pandas as pd
 
+
+PROJECT_DIR = Path(__file__).resolve().parents[2]
+MODEL_DIR = PROJECT_DIR / "models"
+POST_DATA_DIR = PROJECT_DIR / "data" / "processed"
+
+
 def open_directory(POST_DATA_DIR):
     # lists to store file paths
     inflation_file = None
@@ -57,7 +63,4 @@ def main():
     print("Data has been successfully merged.")
 
 if __name__ == '__main__':
-    PROJECT_DIR = Path(__file__).resolve().parents[2]
-    MODEL_DIR = PROJECT_DIR / "models"
-    POST_DATA_DIR = PROJECT_DIR / "data" / "processed"
     main()
