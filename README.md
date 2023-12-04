@@ -24,13 +24,13 @@ r_t is the asset return, calculated as the first difference of the natural log o
 
 To ensure the reliability and validity of our inflation hedging analysis, we implemented robustness checks. These checks are designed to test the stability and consistency of our results under various conditions and assumptions.
    - **Cross-Validation:** We used k-fold cross-validation to evaluate the performance of our regression model across different subsets of the data. This helps in assessing the model's ability to generalize and its performance consistency. The model's R² (coefficient of determination) scores across different folds were analyzed to gauge the variability in its predictive accuracy. Significant variability in these scores might indicate model overfitting or the presence of influential outliers.
-   - **Robust Regression Techniques:** To mitigate the influence of outliers or unusual data points, we employed robust regression methods like Huber regression. These methods are less sensitive to outliers and provide coefficients that can be more representative of the underlying data trends. By comparing the coefficients from standard linear regression with those from robust regression, we can evaluate the impact of outliers on our findings. A substantial discrepancy between the beta coefficients from standard and robust regressions could suggest that the our model's findings are sensitive to outliers.
+   - **Robust Regression Techniques:** To mitigate the influence of outliers or unusual data points, we employed a robust regression methods (Huber). These methods are less sensitive to outliers and provide coefficients that can be more representative of the underlying data trends. By comparing the coefficients from standard linear regression with those from robust regression, we can evaluate the impact of outliers on our findings. A substantial discrepancy between the beta coefficients from standard and robust regressions could suggest that the our model's findings are sensitive to outliers.
    
 ## Objective
-Our analysis aims to calculate the β coefficient for various asset classes to evaluate their performance as inflation hedges. This involves regression analysis where the asset returns are regressed against inflation rates to understand the extent of their correlation and to quantify the hedging capability of each asset class
+Our analysis aims to calculate the β coefficient for various asset classes to evaluate their performance as inflation hedges. This involves regression analysis where the asset returns are regressed against inflation rates to understand the extent of their correlation and to quantify the hedging capability of each asset class.
 
 ## Data Sources
-- Equities: Yahoo Finance
+- Secuirites/Equities: Yahoo Finance
 - Gold: London Bullion Market via Nasdaq
 - CPI Data: US Bureau of Labor Statistics
 
@@ -51,6 +51,7 @@ Our analysis aims to calculate the β coefficient for various asset classes to e
 3. **Fetching Data**:
    - To populate the raw data folder, run the script [load_data].
    - To output processed data, run the script [make_dataset].
+   - To load features run the script [build_features].
 
 4. **Analysis**:
    - To run the regression model on all asset classes and perform robustness checks, run the script [run_regression].

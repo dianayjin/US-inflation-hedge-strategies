@@ -70,9 +70,11 @@ def run_visualization(MODEL_DIR):
             file_path = os.path.join(MODEL_DIR, filename)
             plot_regression_results(file_path)
 
-        elif filename.startswith("robustness_"):
+    for filename in os.listdir(MODEL_DIR):
+        if filename.startswith("robustness_"):
             file_path = os.path.join(MODEL_DIR, filename)
             plot_robustness_checks(file_path)
+    
 
 def main():
     run_visualization(MODEL_DIR)

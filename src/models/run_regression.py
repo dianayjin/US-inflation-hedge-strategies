@@ -8,7 +8,6 @@ import regression_model as rmodel
 
 PROJECT_DIR = Path(__file__).resolve().parents[2]
 MODEL_DIR = PROJECT_DIR / "models"
-POST_DATA_DIR = PROJECT_DIR / "data" / "processed"
 
 def main():
     """ 
