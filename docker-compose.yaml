@@ -1,0 +1,11 @@
+# docker-compose.yml
+version: '2'
+services:
+
+  service-name:
+    image: us-inflation-hedge-strategies
+    user: root
+    env_file:
+      - .env
+    ports:
+      - "8888:8888"
