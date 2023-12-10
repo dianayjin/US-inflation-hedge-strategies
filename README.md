@@ -59,9 +59,9 @@ Our analysis aims to calculate the β coefficient for various asset classes to e
 
 ## Sample output data
 ![Regression Analysis for TIP](images/RegressionanalysisforTIP.png)
-![Regression Analysis for TIP](images/Regressionanalysisforgold.png)
-![Regression Analysis for TIP](images/RegressionanalysisforVNQ.png)
-![Regression Analysis for TIP](images/Regressionanalysisfor^GSPC.png)
+![Regression Analysis for Gold](images/Regressionanalysisforgold.png)
+![Regression Analysis for VNQ](images/RegressionanalysisforVNQ2.png)
+![Regression Analysis for ^GSPC](images/RegressionanalysisforGSPC.png)
 
 ## Containerize the application
  our application is docker enabled, one can use the following command : `docker compose up` in the terminal to run application,then use the link in the terminal(last line), use jupyter notebook from container
