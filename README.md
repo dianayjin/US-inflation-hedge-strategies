@@ -60,7 +60,7 @@ Our analysis aims to calculate the β coefficient for various asset classes to e
 ## Sample output data
 ![Regression Analysis for TIP](images/RegressionanalysisforTIP.png)
 ![Regression Analysis for Gold](images/Regressionanalysisforgold.png)
-![Regression Analysis for VNQ](images/RegressionanalysisforVNQ2.png)
+![Regression Analysis for VNQ](images/RegressionanalysisforVNQ.png)
 ![Regression Analysis for ^GSPC](images/RegressionanalysisforGSPC.png)
 
 ## Containerize the application
