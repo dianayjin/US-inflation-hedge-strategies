@@ -56,7 +56,19 @@ Our analysis aims to calculate the β coefficient for various asset classes to e
 4. **Analysis**:
    - To run the regression model on all asset classes and perform robustness checks, run the script [run_regression].
    - To output visualizations, run the script [visualize].
-   
+
+## Sample output data
+![Regression Analysis for TIP](images/RegressionanalysisforTIP.png)
+![Regression Analysis for TIP](images/Regressionanalysisforgold.png)
+![Regression Analysis for TIP](images/RegressionanalysisforVNQ.png)
+![Regression Analysis for TIP](images/Regressionanalysisfor^GSPC.png)
+
+## Containerize the application
+ our application is docker enabled, one can use the following command : `docker compose up` in the terminal to run application,then use the link in the terminal(last line), use jupyter notebook from container
+ You can access our notebooks from inside jupyter to run our codes in notebooks directory.
+
+
+
  
 Project Organization
 ------------
