@@ -64,7 +64,7 @@ Our analysis aims to calculate the β coefficient for various asset classes to e
 ![Regression Analysis for ^GSPC](images/RegressionanalysisforGSPC.png)
 
 ## Run the application with Docker
- our application is docker enabled, one can use the following command : `docker compose up` in the terminal to run application,then use the link in the terminal(last line), use jupyter notebook from container
+ our application is docker enabled, one can use the following command : `docker-compose up` in the terminal to run application,then use the link in the terminal(last line), use jupyter notebook from container
  You can access our notebooks from inside jupyter to run our codes in notebooks directory.
 
 
