@@ -1,5 +1,6 @@
-US inflation hedges: What domestic assets are most useful to US individual investors to hedge against inflation?
+US inflation hedges
 ==============================
+What domestic assets are most useful to US individual investors to hedge against inflation?
 ## Overview
 
 This analysis is grounded in the Fisher Hypothesis, initially proposed by Fisher in 1930, which establishes a theoretical framework for understanding the relationship between asset returns and inflation. This hypothesis suggests that nominal interest rates are a combination of real returns and the inflation rate. Extending this idea, Fama and Schwert (1977) and later Arnold and Auer (2015) argue that expected nominal returns across various assets are indicative of market expectations about inflation rates.
