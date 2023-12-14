@@ -5,7 +5,6 @@ import user_input as ui
 import load_data as load
 import process_data as process
 
-
 def main():
     """ 
     Runs data loading and processing scripts to turn raw data from (../raw) into cleaned data ready to be analyzed (saved in ../processed).

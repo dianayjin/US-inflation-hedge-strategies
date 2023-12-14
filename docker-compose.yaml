@@ -3,7 +3,7 @@ version: '2'
 services:
 
   service-name:
-    image: us-inflation-hedge-strategies
+    build: .
     user: root
     env_file:
       - .env
