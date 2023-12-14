@@ -63,10 +63,22 @@ Our analysis aims to calculate the β coefficient for various asset classes to e
 ![Regression Analysis for VNQ](images/RegressionanalysisforVNQ.png)
 ![Regression Analysis for ^GSPC](images/RegressionanalysisforGSPC.png)
 
+
 ## Run the application with Docker
- our application is docker enabled, one can use the following command : `docker compose up` in the terminal to run application,then use the link in the terminal(last line), use jupyter notebook from container
+ Our application is docker-enabled, one can use the following command : `docker compose up` in the terminal to run application,then use the link in the terminal(last line), use jupyter notebook from container
  You can access our notebooks from inside jupyter to run our codes in notebooks directory.
 
+## Notebooks
+notebooks allow us to easily run the application in 4 stages:
+
+<ol>
+<li> <b>hsj-data</b>: retrievs datasets based on user inputs</li>
+<li> <b>hsj-features</b>:  merge inflation data with asset data and create separate merged datasets for each asset. </li>
+<li> <b>hsj-models</b>:  provides insights into how changes in inflation rates may influence the log returns of our four assets.</li>
+<li> <b>hsj-visualize</b>: visualizes results of the regression model and robustness checks conducted on all asset classes.</li>
+</ol>
+
+You can find Jupyter notebooks in `notebooks` directory.
 
 
  
