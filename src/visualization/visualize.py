@@ -40,45 +40,13 @@ def plot_regression_results(file_path):
     plt.grid(True)
     plt.show()
 
-def plot_robustness_checks(file_path):
-    # load robustness check data
-    robustness_data = pd.read_csv(file_path)
-
-    # plotting
-    plt.figure(figsize=(12, 6))
-
-    # box plot for cross-validation R^2 scores
-    plt.subplot(1, 2, 1)
-    sns.boxplot(data=robustness_data, x='Asset Name', y='CV Average R^2')
-    plt.title('Cross-Validation R² Scores')
-    plt.xlabel('Asset')
-    plt.ylabel('R² Score')
-
-    # bar plot for robust regression coefficients
-    plt.subplot(1, 2, 2)
-    sns.barplot(data=robustness_data, x='Asset Name', y='Robust Beta Coefficient')
-    plt.title('Robust Regression Beta Coefficients')
-    plt.xlabel('Asset')
-    plt.ylabel('Beta Coefficient')
-
-    plt.tight_layout()
-    plt.show()
-
 def run_visualization(MODEL_DIR):
     for filename in os.listdir(MODEL_DIR):
         if filename.endswith("merged_data.csv"):
             file_path = os.path.join(MODEL_DIR, filename)
             plot_regression_results(file_path)
 
-    for filename in os.listdir(MODEL_DIR):
-        if filename.startswith("robustness_"):
-            file_path = os.path.join(MODEL_DIR, filename)
-            plot_robustness_checks(file_path)
-    
-
 def main():
     run_visualization(MODEL_DIR)
-
 if __name__ == '__main__':
-    
     main()
