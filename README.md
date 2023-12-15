@@ -34,22 +34,18 @@ Go to [walkthrough](walkthrough.ipynb) for our results.
 4. **View results**:
    Navigate to [walkthrough](walkthrough.ipynb) in the main branch of the directory for our results.
 
-
-
-## Notebooks
-notebooks allow us to easily run the application in 4 stages:
+## Notebooks (working files)
+Notebooks allow us to easily run the application in 4 stages:
 
 <ol>
-<li> <b>hsj-data</b>: retrievs datasets based on user inputs</li>
-<li> <b>hsj-features</b>:  merge inflation data with asset data and create separate merged datasets for each asset. </li>
-<li> <b>hsj-models</b>:  provides insights into how changes in inflation rates may influence the log returns of our four assets.</li>
-<li> <b>hsj-visualize</b>: visualizes results of the regression model and robustness checks conducted on all asset classes.</li>
+<li> <b>hsj-data</b>: Retrieves datasets based on user inputs</li>
+<li> <b>hsj-features</b>:  Merges inflation data with asset data and create separate merged datasets for each asset. </li>
+<li> <b>hsj-models</b>:  Provides insights into how changes in inflation rates may influence the log returns of our four assets.</li>
+<li> <b>hsj-visualize</b>: Visualizes results of the regression conducted on all asset classes.</li>
 </ol>
 
-You can find Jupyter notebooks in `notebooks` directory.
+You can find Jupyter notebooks in [notebooks](notebooks).
 
-
- 
 Project Organization
 ------------
 
