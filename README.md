@@ -6,10 +6,10 @@ What domestic assets are most useful to US individual investors to hedge against
 Our analysis aims to calculate the β coefficient for various asset classes to evaluate their performance as inflation hedges. This involves regression analysis where the asset returns are regressed against inflation rates to understand the extent of their correlation and to quantify the hedging capability of each asset class.
 
 Go to [walkthrough](walkthrough.ipynb) for our results.
-![Regression Analysis for Gold](reports/figures/Regressionanalysisforgold.png)
-![Regression Analysis for TIP](reports/figures/RegressionanalysisforTIP.png)
-![Regression Analysis for VNQ](reports/figures/RegressionanalysisforVNQ.png)
-![Regression Analysis for ^GSPC](reports/figures/RegressionanalysisforGSPC.png)
+![Regression Analysis for Gold](reports/latex/Regressionanalysisforgold.png)
+![Regression Analysis for TIP](reports/latex/RegressionanalysisforTIP.png)
+![Regression Analysis for VNQ](reports/latex/RegressionanalysisforVNQ.png)
+![Regression Analysis for ^GSPC](reports/latex/RegressionanalysisforGSPC.png)
 
 ## Setup Instructions
 1. **API keys**:
