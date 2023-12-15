@@ -36,7 +36,7 @@ Go to [walkthrough](walkthrough.ipynb) for our results.
 
 
 ## Run the application with Docker
- Our application is docker-enabled, one can use the following command : `docker compose up` in the terminal to run application,then use the link in the terminal(last line), use jupyter notebook from container
+ Our application is docker-enabled, one can use the following command : `docker-compose up` in the terminal to run application,then use the link in the terminal(last line), use jupyter notebook from container
  You can access our notebooks from inside jupyter to run our codes in notebooks directory.
 
 ## Notebooks
