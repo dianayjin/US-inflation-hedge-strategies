@@ -62,7 +62,6 @@ Project Organization
     ├── notebooks          <- Jupyter notebooks (working files).
     │
     ├── reports            <- Generated analysis as LaTeX.
-    │   └── figures        <- Generated graphics and figures.
     │
     ├── requirements.txt   <- The requirements file for reproducing the analysis environment.
     │
