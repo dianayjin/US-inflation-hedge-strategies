@@ -1,0 +1,234 @@
+\documentclass{beamer}
+\usetheme{uic}
+\usepackage{amsfonts,amsmath,oldgerm,algorithmic,algorithm}
+\usepackage{svg}
+\usepackage[font=small,labelfont=bf]{caption} % Required for specifying captions to tables and figures
+
+
+\newcommand{\hrefcol}[2]{\textcolor{uihteal}{\href{#1}{#2}}}
+\newcommand{\testcolor}[1]{\colorbox{#1}{\textcolor{#1}{test}}~\texttt{#1}}
+
+% Please see Section 18.1 of Beamer User Guide for all the options \usefonttheme provides
+\usefonttheme[onlymath]{serif}
+% \usefonttheme{serif} % use this if you would like Serif font throughout (and not just for math)
+
+\title{US Inflation Hedge Strategies}
+\titlebackground{images/campus2.jpg}
+% an asterisk will split the background:
+% \titlebackground*{images/uic_seo.jpg}
+\subtitle{\textbf{Digital Tools for Finance}}
+% This can be adjusted accordingly for longer titles
+\newcommand{\titleboxwidth}{0.45\textwidth}
+
+%\author{\href{mailto:umunee2@uic.edu}{Usama Muneeb}}
+\author{\href{mailto:diana.jin@uzh.ch}{Diana Jin},\href{mailto:andrea.pozzi@uzh.ch}{ Andrea Pozzi},\href{mailto:zhiyu.wei@uzh.ch}{ Zhiyu Wei},\href{mailto:hanieh.jebeli@uzh.ch}{ Hanieh Jebeli}}
+\date{18.12.2023}
+
+\begin{document}
+\maketitle
+
+% default is no footline, but page numbers are incredibly useful for the audience to ask questions later
+\footlinecolor{uicblue}
+
+
+\begin{chapter}[images/campus1.jpg]{uicblue}
+{Agenda}\\[1em]
+{1.Introduction\\[1em]
+2.Data\\[1em]
+3.Methodology\\[1em]
+4.Results\\[1em]
+5.Conclusion}
+\end{chapter}
+
+\begin{frame}{Introduction}
+\begin{itemize}
+\item Inflation is a general increase of the prices of goods and services in an economy, typically
+measured by the Consumer Price Index (CPI). 
+\item During investment activities, the aim of a
+rational investor is to maximize returns and reduce risk.
+\item An Inflation hedge is an investment against decreased purchasing power of a currency
+that results from the loss of its value due to rising prices. 
+\end{itemize}
+Therefore, looking for a good inflation hedge is meaningful for investors.
+\end{frame}
+
+\begin{frame}[fragile]{Data}
+The assets considered in the analysis are the following:\\
+\begin{itemize}
+\item Gold\quad(London Bullion Market data provided by Nasdaq)
+\item Securities\quad(\textasciicircum{}GSPC, TIP, VNQ)
+\item Consumer Price Index\quad(CPI data provided by US Bureau of Labor Statistics)
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]{Methodology}
+\framesubtitle{Theoretical Model}
+Based on the Fisher hypothesis, the nominal interest rate is expressed as the sum of real returns and inflation rate. \\
+The definition of hedging against inflation is that the expected nominal interest rate should
+move in sync with expected inflation.
+\begin{itemize}
+\item simple linear regression model
+\item assumptions
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Methodology}
+\framesubtitle{Theoretical Model}
+\begin{center}
+{\(r_t = \alpha + \beta \pi_t + \epsilon_t; \quad \epsilon_t \sim N(0, \sigma^2_{\epsilon})\)}
+\end{center}
+where \(r_t\) is the asset return at period t computed as \(100*\log\left(\frac{p_t}{p_{t-1}}\right)\)  (note that p is the monthly price of the asset in question), and $\pi_t$ is the inflation rate at period t computed as \(100*\log\left(\frac{cpi_t}{cpi_{t-1}}\right)\)\\[1em]
+The coefficient \(\beta\) is a measurement of the inflation hedge, \(\beta=0\) means no inflation hedging potential; \(0<\beta<1\) means partial hedge; \(\beta\)=1 means full hedge; \(\beta>1\) means superior hedging performance.
+\end{frame}
+
+\begin{frame}[fragile]{Methodology}
+\framesubtitle{Theoretical Model}
+\begin{itemize}
+\item Assumption 1: Symmetry
+\item Assumption 2: No time-variance
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Methodology}
+\framesubtitle{Implementation}
+\begin{itemize}
+\item the data mentioned above is pulled from the different websites with web APIs
+\item a regression model is implemented in Python to analyze the data
+\item two robustness checks are performed to ensure the reliability and validity of the inflation hedging analysis
+\item the results of the analysis are analyzed to find the best hedging strategy
+\end{itemize}
+The data analyzed in this research is for the period 01/01/2004 to 31/10/2023. We provide our instruction and fully replicable code. 
+\end{frame}
+
+\begin{frame}[fragile]{Results}
+\framesubtitle{Regression}
+
+In the table below are reported the results of the linear regression, with the respective hedging capabilities of the assets considered.
+
+\begin{table}[h!]
+  \centering
+  \begin{tabular}{|c|c|c|}
+    \hline
+    \textbf{Asset Name} & \textbf{$\beta$ Coefficient} & \textbf{Hedging Potential} \\
+    \hline
+    Gold & 0.5658 & Partial Hedge \\ \hline
+    TIP & -0.0985 & No hedge \\ \hline
+    VNQ & 1.1018 & Superior \\ \hline
+    \textasciicircum GSPC & 0.5291 & Partial Hedge \\  \hline
+  \end{tabular}
+  
+  \label{tab:table1}
+\end{table}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Results}
+  \framesubtitle{Regression Results for Gold}
+  \vspace{-7.5pt}
+  \begin{center}
+    \begin{tabular}{c}
+     \includesvg[width=.75\textwidth]{images/regressiongold.svg}
+    \end{tabular}
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Results}
+  \framesubtitle{Regression Results for iShares TIPS Bond returns}
+    \vspace{-7.5pt}
+  \begin{center}
+    \begin{tabular}{c}
+     \includesvg[width=.75\textwidth]{images/regressionTIP.svg}
+    \end{tabular}
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Results}
+  \framesubtitle{Regression Results for Vanguard Real Estate Index Fund returns}
+    \vspace{-7.5pt}
+  \begin{center}
+    \begin{tabular}{c}
+     \includesvg[width=.75\textwidth]{images/regressionVNQ.svg}
+    \end{tabular}
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Results}
+  \framesubtitle{Regression Results for S\&P500 Index returns}
+    \vspace{-7.5pt}
+  \begin{center}
+    \begin{tabular}{c}
+     \includesvg[width=.75\textwidth]{images/regression^GSPC.svg}
+    \end{tabular}
+  \end{center}
+\end{frame}
+
+\begin{frame}[fragile]{Results}
+\framesubtitle{Cross Validation Results}
+
+The average \(R^2\) scores for four assets are all negative, which implies the model is not appropriate for the data. This is mainly because we only use simple linear regression model to analyze the relation between inflation and returns of assets, relying on strong assumptions that are not observed in reality.
+
+\begin{table}[h!]
+  \centering
+  \begin{tabular}{|c|c|c|}
+    \hline
+    \textbf{Asset Name}  &  \textbf{CV Average R\textsuperscript{2}} & \textbf{CV R\textsuperscript{2} Scores} \\
+    \hline
+    Gold & -0.0219 & [-0.0090, -0.0028, 0.0033, -0.0040, -0.0968] \\
+    \hline
+    TIP & -0.0574 & [-0.0151, -0.1226, 0.0008, -0.1230, -0.0272] \\
+    \hline
+    VNQ & -0.0260 & [-0.0687, -0.0253, -0.0436, 0.0065, 0.0009] \\
+    \hline
+    \textasciicircum GSPC & -0.1228 & [-0.2961, -0.0841, -0.0276, -0.0710, -0.1354] \\
+    \hline
+  \end{tabular}
+
+  \label{tab:table1}
+\end{table}
+  
+\end{frame}
+
+  
+
+\begin{frame}[fragile]{Results}
+\framesubtitle{Huber regression Results}
+
+ The beta coefficients for gold, TIP, and VNQ are all negative, showing no hedging potential. The coefficient for \textasciicircum GSCP is 0.0006,  which is very close to zero, indicating a very weak hedging potential. 
+
+\begin{table}[h!]
+  \centering
+  \begin{tabular}{|c|c|c|}
+    \hline
+    \textbf{Asset Name} & \textbf{Robust $\beta$ Coefficient} & \textbf{Robust Intercept} \\
+    \hline
+    Gold & -0.2691 & 0.0076\\
+    \hline
+    TIP & -0.1579 & 0.0038\\
+    \hline
+    VNQ & -1.1747 & 0.0138\\
+    \hline
+    \textasciicircum GSPC & 0.0006 & 0.0101\\
+    \hline
+  \end{tabular}
+  
+  \label{tab:table2}
+\end{table}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Conclusion}
+The results obtained by running the model have highlighted different levels of inflation hedging among the strategies analyzed. VNQ (Real Estate ETF) has a superior hedge performance and making it the best strategy among the ones considered. 
+Both Gold and \textasciicircum GSPC are partial hedges, and  TIPs are the worse instrument to hedge inflation.
+\end{frame}
+
+\end{document}
+      
+
+
